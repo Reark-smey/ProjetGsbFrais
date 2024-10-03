@@ -7,12 +7,12 @@
         <th style="width:20%">Modifier</th>
         <th style="width:20%">Supprimer</th>
         </thead>
-        @foreach( )
+        @foreach( $lesFrais as $frais)
             <tr>
-                <td> </td>
-                <td> </td>
+                <td>{{$frais->anneemois}} </td>
+                <td>{{$frais->montantvalide}} </td>
                 <td style="text-align:center;">
-                    <a href="{{ }}/{{ }}">
+                    <a href="{{url('/modifierFrais')}}/{{$frais->id_visiteur}}">
                     <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top"
                           title="Modifier">
                     </span>
@@ -20,7 +20,7 @@
                 </td>
                 <td style="text-align:center;">
                     <a onclick="javascript:if (confirm('Suppression confirmée ?')) {
-                    window.location='{{ }}/{{ }}'
+                    window.location='{{url('/supprimerFrais')}}/{{$frais->id_visiteur}}'
 					}">
                         <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top"
                               title="Supprimer"></span>
