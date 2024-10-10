@@ -11,7 +11,9 @@ use Exception;
 class FraisController extends Controller
 {
     public function getFraisVisiteur() {
+
         $erreur = "";
+        Session::forget('erreur');
         try {
             $id = Session::get('id');
             $servicesFrais = new ServiceFrais();
@@ -64,6 +66,17 @@ class FraisController extends Controller
             $titreVue = "Création d'une fiche de frais";
             return view('/vues/formFrais', compact('unFrais', 'titreVue'));
         } catch (Exception $e) {
+            $erreur = $e->getMessage();
+            return view('vues/error', compact('erreur'));
+        }
+    }
+    public function removeFrais($id_frais){
+        try{
+
+            $serviceFrais = new ServiceFrais();
+            $serviceFrais->deleteFrais($id_frais);
+            return redirect('/getFraisVisiteur');
+        }catch (Exception $e){
             $erreur = $e->getMessage();
             return view('vues/error', compact('erreur'));
         }
