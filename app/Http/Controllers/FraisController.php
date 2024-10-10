@@ -27,9 +27,27 @@ class FraisController extends Controller
             $serviceFrais = new ServiceFrais();
             $unFrais = $serviceFrais->getById($id_frais);
             $titreVue = "Modification d'une fiche de frais";
-            return view('/vues/formFrais', compact('unFrais'));
+            return view('/vues/formFrais', compact('unFrais', 'titreVue', 'erreur'));
         }catch (Exception $e) {
             throw new MonException($e->getMessage(), 5);
+        }
+    }
+    public function validateFrais(Request $request, $id_frais)
+    {
+
+        $erreur = "";
+        try {
+
+            $anneemois = $request->input('anneemois');
+            $nbjustificatifs = $request->input('nbjustificatifs');
+            $serviceFrais = new ServiceFrais();
+            if ($id_frais > 0 ) {
+                $serviceFrais->updateFrais($id_frais, $anneemois, $nbjustificatifs);
+            }
+            return redirect('/getFraisVisiteur');
+        } catch (Exception $e){
+            $erreur = $e->getMessage();
+            return view('vues/error', compact('erreur'));
         }
     }
 

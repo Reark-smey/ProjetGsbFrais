@@ -14,7 +14,7 @@
                 <td>{{$frais->anneemois}} </td>
                 <td>{{$frais->montantvalide}} </td>
                 <td style="text-align:center;">
-                    <a href="{{url('/modifierFrais')}}/{{$frais->id_visiteur}}">
+                    <a href="{{url('/updateFrais')}}/{{$frais->id_frais}}">
                     <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="top"
                           title="Modifier">
                     </span>
@@ -22,7 +22,7 @@
                 </td>
                 <td style="text-align:center;">
                     <a onclick="javascript:if (confirm('Suppression confirmée ?')) {
-                    window.location='{{url('/supprimerFrais')}}/{{$frais->id_visiteur}}'
+                    window.location='{{url('/supprimerFrais')}}/{{$frais->id_frais}}'
 					}">
                         <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top"
                               title="Supprimer"></span>
