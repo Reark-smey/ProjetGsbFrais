@@ -1,4 +1,5 @@
-
+@extends('layouts.master')
+@section('content')
 
 {!! Form::open(['url' => ' ']) !!}
 <div class="col-md-12  col-sm-12 well well-md">

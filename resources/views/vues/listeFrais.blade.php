@@ -1,3 +1,5 @@
+@extends('layouts.master')
+@section('content')
 
 	<h1> </h1>
     <table class="table table-bordered table-striped table-responsive">
@@ -7,7 +9,7 @@
         <th style="width:20%">Modifier</th>
         <th style="width:20%">Supprimer</th>
         </thead>
-        @foreach( $lesFrais as $frais)
+        @foreach($mesFrais as $frais)
             <tr>
                 <td>{{$frais->anneemois}} </td>
                 <td>{{$frais->montantvalide}} </td>

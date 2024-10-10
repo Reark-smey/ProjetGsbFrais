@@ -12,10 +12,10 @@ class ServiceFrais
     public function getFrais($id) {
         try {
             $lesFrais = DB::table('frais')
-                ->select('montantvalide', 'anneemois')
-                ->where('id'.'=', $id)
+                ->select()
+                ->where('id_visiteur','=', $id)
                 ->orderby ('anneemois', 'ASC')
-                ->first();
+                ->get();
             return $lesFrais;
         }catch(QueryException $e){
             throw new MonException($e->getMessage(), 5);
