@@ -35,7 +35,7 @@
                         <div class="collapse navbar-collapse" id="navbar-collapse-target">
                             <ul class="nav navbar-collapse navbar-nav navbar-left" id="navbar-collapse-target" >
                                 <li><a href="{{url('/getFraisVisiteur')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Lister</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>
+                                <li><a href="{{url('/ajouterFrais')}}" data-toggle="collapse" data-target=".navbar-collapse.in">Ajouter</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="{{url('/getLogin')}}" data-toggle="collapse" data-target=".navbar-collapse.in" > ({{Session::get('login')}}) Se déconnecter</a> </li>

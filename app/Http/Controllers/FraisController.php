@@ -6,6 +6,7 @@ use App\Exceptions\MonException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\dao\ServiceFrais;
+use App\Models\Frais;
 use Exception;
 class FraisController extends Controller
 {
@@ -41,8 +42,12 @@ class FraisController extends Controller
             $anneemois = $request->input('anneemois');
             $nbjustificatifs = $request->input('nbjustificatifs');
             $serviceFrais = new ServiceFrais();
+
             if ($id_frais > 0 ) {
                 $serviceFrais->updateFrais($id_frais, $anneemois, $nbjustificatifs);
+            }else {
+                $id_visiteur = Session::get('id');
+                $serviceFrais->insertFrais($id_visiteur, $anneemois, $nbjustificatifs);
             }
             return redirect('/getFraisVisiteur');
         } catch (Exception $e){
@@ -51,4 +56,16 @@ class FraisController extends Controller
         }
     }
 
+    public function addFrais(){
+        $serviceFrais = new ServiceFrais();
+        try {
+            $unFrais = new Frais();
+            $unFrais->id_frais = 0;
+            $titreVue = "Création d'une fiche de frais";
+            return view('/vues/formFrais', compact('unFrais', 'titreVue'));
+        } catch (Exception $e) {
+            $erreur = $e->getMessage();
+            return view('vues/error', compact('erreur'));
+        }
+    }
 }

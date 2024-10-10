@@ -11,4 +11,7 @@ class Frais extends Model
     protected $primary='id_frais';
 
     public $timestamps=false;
+
+    public int $id_frais;
+
 }
