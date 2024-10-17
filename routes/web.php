@@ -33,3 +33,11 @@ Route::post('/validerFrais/', 'App\Http\Controllers\FraisController@validerFrais
 Route::get('removeFrais/{id}', 'App\Http\Controllers\FraisController@removeFrais');
 
 Route::get('/getHorsForfait', 'App\Http\Controllers\HorsForfaitController@getHorsForfait');
+
+Route::get('/updateHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@updateFrais');
+Route::post('/validateHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@validateHorsForfait');
+
+Route::get('/addHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@addHorsForfait');
+Route::post('/validateHorsForfait/', 'App\Http\Controllers\HorsForfaitController@validateHorsForfait');
+
+Route::get('removeHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@removeHorsForfait');
