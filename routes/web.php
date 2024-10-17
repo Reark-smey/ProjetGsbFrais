@@ -31,3 +31,5 @@ Route::get('/ajouterFrais', 'App\Http\Controllers\FraisController@addFrais');
 Route::post('/validerFrais/', 'App\Http\Controllers\FraisController@validerFrais');
 
 Route::get('removeFrais/{id}', 'App\Http\Controllers\FraisController@removeFrais');
+
+Route::get('/getHorsForfait', 'App\Http\Controllers\HorsForfaitController@getHorsForfait');
