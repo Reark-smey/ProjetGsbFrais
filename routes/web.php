@@ -34,7 +34,7 @@ Route::get('removeFrais/{id}', 'App\Http\Controllers\FraisController@removeFrais
 
 Route::get('/getHorsForfait', 'App\Http\Controllers\HorsForfaitController@getHorsForfait');
 
-Route::get('/updateHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@updateFrais');
+Route::get('/updateHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@updateHorsForfait');
 Route::post('/validateHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@validateHorsForfait');
 
 Route::get('/addHorsForfait/{id}', 'App\Http\Controllers\HorsForfaitController@addHorsForfait');
