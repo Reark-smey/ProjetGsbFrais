@@ -12,7 +12,7 @@ class FraisController extends Controller
 {
     public function getFraisVisiteur() {
 
-        $erreur = "";
+        $erreur = Session::get('erreur');
         Session::forget('erreur');
         try {
             $id = Session::get('id');
@@ -75,7 +75,8 @@ class FraisController extends Controller
 
             $serviceFrais = new ServiceFrais();
             $serviceFrais->deleteFrais($id_frais);
-            return redirect('/getFraisVisiteur');
+
+
         }catch (Exception $e){
             $erreur = $e->getMessage();
             return view('vues/error', compact('erreur'));

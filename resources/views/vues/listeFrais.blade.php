@@ -22,7 +22,7 @@
                 </td>
                 <td style="text-align:center;">
                     <a onclick="javascript:if (confirm('Suppression confirmée ?')) {
-                    window.location='{{url('/supprimerFrais')}}/{{$frais->id_frais}}'
+                    window.location='{{url('/removeFrais')}}/{{$frais->id_frais}}'
 					}">
                         <span class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="top"
                               title="Supprimer"></span>
