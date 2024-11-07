@@ -32,7 +32,7 @@ class HorsForfaitController extends Controller
             $serviceHorsForfait = new ServiceHorsForfait();
             $unHorsForfait = $serviceHorsForfait->getById($id_horsforfait);
             $titreVue = "Modification d'une fiche de  hors forfait";
-            return view('/vues/formFrais', compact('unHorsForfait', 'titreVue', 'erreur'));
+            return view('/vues/formHorsForfait', compact('unHorsForfait', 'titreVue', 'erreur'));
         }catch (Exception $e) {
             throw new MonException($e->getMessage(), 5);
         }
@@ -78,8 +78,8 @@ class HorsForfaitController extends Controller
     public function removeHorsForfait($id_HorsForfait){
         try{
 
-            $serviceFrais = new ServiceFrais();
-            $serviceFrais->deleteFrais($id_HorsForfait);
+            $serviceHorsFrais = new ServiceHorsForfait();
+            $serviceHorsFrais->deleteHorsForfait($id_HorsForfait);
 
 
         }catch (Exception $e){
